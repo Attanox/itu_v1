@@ -1,0 +1,28 @@
+.__hover-white:hover {
+    color: #fff !important;
+}
+
+.__max_height {
+    transform: scaleY(1) !important;
+    display: block !important;
+}
+
+.custom-control-label::before,
+.custom-control-label::after {
+    left: -0.250rem !important;
+}
+
+@media only screen and (max-width: 400px) {
+    .container {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+}
+@media only screen and (max-width: 270px) {
+    h3 > button {
+        width: 100%;
+        margin: 0.5rem;
+    }
+}
