@@ -19,8 +19,11 @@ class CreateVehiclesTable extends Migration
             $table->date('stk');
             $table->date('ek');
             $table->string('plate', 10);
-            $table->string('registration number', 100);
+            $table->string('registration_number', 100);
             $table->timestamps();
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

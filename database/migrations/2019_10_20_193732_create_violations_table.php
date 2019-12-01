@@ -15,9 +15,15 @@ class CreateViolationsTable extends Migration
     {
         Schema::create('violations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('happened on');
-            $table->string('happened at', 100);
+            $table->date('happened_on');
+            $table->string('happened_at', 100);
             $table->timestamps();
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            
+            $table->unsignedBigInteger('vehicle_id');
+            $table->foreign('vehicle_id')->references('id')->on('vehicles');
         });
     }
 
