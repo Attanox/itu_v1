@@ -31,7 +31,7 @@ class Vehicle extends Model
         'registered', 'registration number', 'plate', 
     ];
 
-    public function users(){
-        return $this->belongsToMany('App\User', 'user_vehicle');
+    public function vignettes(){
+        return $this->hasMany('App\Vignette');
     }
 }

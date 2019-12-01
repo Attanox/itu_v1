@@ -18,18 +18,33 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * Gets user data about his vehicles and violations
+     * 
+     * @return $data
      */
-    public function index()
-    {
+    public function getData() {
         $vehicles = Auth::user()->vehicles;
         $violations = Auth::user()->violations;
         $data = [
             'vehicles' => $vehicles,
             'violations' => $violations,
         ];
+
+        return $data;
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+        $data = $this->getData();
+        
+        // dd($data);
+
+
         return view('home')->with('data', $data);
     }
 }

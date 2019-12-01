@@ -19,7 +19,7 @@ class Violation extends Model
      * @var array
      */
     protected $fillable = [
-        'happened on', 'happened at',
+        'happened_on', 'happened_at',
     ];
 
     /**
@@ -31,7 +31,5 @@ class Violation extends Model
          
     ];
 
-    public function users(){
-        return $this->belongsToMany('App\Violation', 'user_violation');
-    }
+    
 }

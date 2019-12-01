@@ -23,7 +23,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'op', 'date_of_birth', 'password',
+        'name', 'surname', 'op', 'date_of_birth', 'password',
     ];
 
     /**
@@ -45,10 +45,10 @@ class User extends Authenticatable
     ];
 
     public function violations(){
-        return $this->belongsToMany('App\Violation', 'user_violation');
+        return $this->hasMany('App\Violation');
     }
     
     public function vehicles(){
-        return $this->belongsToMany('App\Vehicle', 'user_vehicle');
+        return $this->hasMany('App\Vehicle');
     }
 }
