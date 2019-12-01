@@ -1,20 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mb-4">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-sm-12 col-md-9">
             <div class="card">
-                <div class="card-header">{{ __('Prihlásenie') }}</div>
+                <div class="__card-header"></div>
 
-                <div class="card-body">
+                <div class="card-body __bg-main-light text-white">
+                    <h4>{{ __('Prihlásenie') }}</h4>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="op" class="col-md-4 col-form-label text-md-right">{{ __('Č. občianskeho preukazu') }}</label>
+                            <label for="op" class="col-sm-12 col-form-label text-left">{{ __('Č. občianskeho preukazu') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-sm-12">
                                 <input id="op" class="form-control @error('op') is-invalid @enderror" name="op" value="{{ old('op') }}" required autocomplete="op" autofocus>
 
                                 @error('op')
@@ -26,9 +27,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Heslo') }}</label>
+                            <label for="password" class="col-sm-12 col-form-label text-left">{{ __('Heslo') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-sm-12">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
@@ -40,7 +41,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -52,16 +53,10 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-md-6">
+                                <button type="submit" class="btn __btn-highlight">
                                     {{ __('Prihlásiť') }}
                                 </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Zabudli ste heslo?') }}
-                                    </a>
-                                @endif
                             </div>
                         </div>
                     </form>

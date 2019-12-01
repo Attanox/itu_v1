@@ -14,6 +14,8 @@
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 
+Route::post('/payviolation', 'PagesController@payviolation');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -9,8 +9,6 @@
 
     <title>{{ config('app.name', 'EVVP') }}</title>
 
-    {{-- <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -21,10 +19,15 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        @include('inc.navbar')
+    <div class="__height-100 d-flex flex-column justify-content-between">
+        <div id="content-wrap">
+            @include('inc.navbar')
+    
+            @yield('content')
+        </div>
+
+        @include('inc.footer')
         
-        @yield('content')
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script>
