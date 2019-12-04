@@ -18,6 +18,8 @@ class CreateClerkTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('surname');
+            $table->string('email')->unique();
+            $table->string('job_title')->nullable();
             $table->date('date_of_birth');
             $table->string('password');
             $table->rememberToken();
